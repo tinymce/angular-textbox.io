@@ -3,7 +3,7 @@
 ##What does this do?
 
 ###tl;dr
-`angular-textbox.io` provides AngularJS bindings to the Textbox.io WYSIWYG Rich Text Editor.
+`angular-textbox.io` provides an AngularJS Directive that allows the Textbox.io WYSIWYG Rich Text Editor to be part of your `<form>`.
 
 ##Requirements
 * AngularJS **1.3** *

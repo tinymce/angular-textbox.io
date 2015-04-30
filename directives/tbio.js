@@ -99,7 +99,7 @@
                 }; //$render end
 
                 // In lieu of events I just update the model every X seconds.
-                // Dare we use keypress?  What about APIs that load new data into the textarea?
+                // Once the editor has event(s) this gets replaced by event code.
                 var interval = $interval(function () {
                     ngModelController.$setViewValue(theEditor.content.get());
                 }, 500); // interval end

@@ -119,7 +119,7 @@
     }];
 
     //Create the actual Controller and Directive
-    angular.module('textboxio', [])
+    angular.module('ephox.textboxio', [])
         .controller('TextboxioController', tbioController)
         .directive('tbio', tbioDirective)
         .directive('tbioMinlength', tbioMinLengthDirective)

@@ -1,7 +1,7 @@
 // You can add your own custom validation functions that will be added to the $validators pipeline for all textboxio
 // instances on the page.
 
-angular.module('textboxio').factory('tbioValidationsFactory', ['$log', function ($log) {
+angular.module('ephox.textboxio').factory('tbioValidationsFactory', ['$log', function ($log) {
     //    $log.log('Loading tbioValidationsFactory');
     var validations = [];
     /*

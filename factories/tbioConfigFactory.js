@@ -1,4 +1,4 @@
-angular.module('textboxio').factory('tbioConfigFactory', ['$log', function ($log) {
+angular.module('ephox.textboxio').factory('tbioConfigFactory', ['$log', function ($log) {
     //    $log.log('Loading tbioConfigFactory');
     var configurations = {};
 

@@ -1,29 +1,29 @@
 {
     "name": "angular-textboxio",
-    "version": "0.1.0",
+    "version": "0.1.2",
     "homepage": "https://github.com/mfromin/angular-textbox.io",
     "authors": [
-    "Michael Fromin <michael.fromin@ephox.com>"
-  ],
-    "description": "AngularJS Directive that allows the Textbox.io WYSIWYG Rich Text Editor to be part of your `<form>`",
+        "Michael Fromin <michael.fromin@ephox.com>"
+    ],
+    "description": "AngularJS Directive that allows the Textbox.io WYSIWYG Rich Text Editor to be part of your <form>",
     "main": "tbio.js",
     "keywords": [
-    "angular",
-    "angularjs",
-    "textbox",
-    "textbox.io",
-    "ephox"
-  ],
+        "angular",
+        "angularjs",
+        "textbox",
+        "textbox.io",
+        "ephox"
+    ],
     "license": "GNU GENERAL PUBLIC LICENSE",
     "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
     "dependencies": {
-        "angular": "~1.3.0"
+        "angular": "~1.3.0",
         "jquery": "~1.11.2"
     }
 }

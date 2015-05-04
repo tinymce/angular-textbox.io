@@ -79,7 +79,7 @@ In total these files provide a module (`textboxio`) that contains 3 directives, 
 
 
 ##The complete details on what this does
-####(when tl;dr is not enough)
+####(when tl;dr is not enough!)
 AngularJS provides a built in two-way data binding between form (view) elements and the underlying (data) model.  While this works well for standard form elements, AngularJS does not know how to interact with Textbox.io.
 
 This is primarily due to the fact that Textbox.io “hides” the form field (`<textarea>`) and superimposes an iFrame over the form field.  This means that when you are typing into Textbox.io you are not updating an AngularJS aware view so the underlying model is not updated.  When the form is submitted, the content of Textbox.io is not included.

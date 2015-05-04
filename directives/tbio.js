@@ -23,6 +23,30 @@
         };
     }];
 
+    var tbioRequiredDirective = ['$log', function ($log) {
+        $log.log('Loading Textbox.io Required Directive');
+        var link = function (scope, element, attrs, ngModelCtrl) {
+            if (!ngModelCtrl) return;
+            attrs.required = true; // force truthy in case we are on non input element
+
+            ngModelCtrl.$validators.tbioRequired = function (modelValue, viewValue) {
+                var jStrippedString = jQuery(modelValue).text().trim();
+                $log.log('REQUIRED: ' + (!attrs.required || !ngModelCtrl.$isEmpty(jStrippedString)))
+                return !attrs.required || !ngModelCtrl.$isEmpty(jStrippedString);
+            };
+
+            attr.$observe('tbioRequired', function () {
+                ngModelCtrl.$validate();
+            });
+        };
+
+        return {
+            restrict: 'A',
+            require: '?ngModel',
+            link: link
+        };
+    }];
+
     var tbioMinLengthDirective = ['$log', function ($log) {
         //$log.log('Loading Textbox.io Min Length Directive');
         var link = function (scope, element, attrs, ngModelCtrl) {
@@ -38,6 +62,7 @@
                 //if (viewValue) {
                 //    $log.log('MIN length check. Is ' + jStrippedString.length + '>=' + minlength);
                 //}
+                $log.log('Min Length? ' + ngModelCtrl.$isEmpty(jStrippedString) || jStrippedString.length >= minlength);
                 return ngModelCtrl.$isEmpty(jStrippedString) || jStrippedString.length >= minlength;
             };
         };
@@ -123,5 +148,6 @@
         .controller('TextboxioController', tbioController)
         .directive('tbio', tbioDirective)
         .directive('tbioMinlength', tbioMinLengthDirective)
-        .directive('tbioMaxlength', tbioMaxLengthDirective);
+        .directive('tbioMaxlength', tbioMaxLengthDirective)
+        .directive('tbioRequired', tbioRequiredDirective);
 }());

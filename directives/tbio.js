@@ -115,11 +115,10 @@
                 // In lieu of events I just update the model every X seconds.
                 // Once the editor has event(s) this gets replaced by event code.
                 var interval = $interval(function () {
-                    if ('<p><br /></p>' == theEditor.content.get()) {
-                        console.log('EMPTY ' + ngModelController.$pristine);
-
-                    } else {
+                    if (!('<p><br /></p>' == theEditor.content.get())) {
                         ngModelController.$setViewValue(theEditor.content.get());
+                    } else {
+                        console.log('EMPTY! ' + ngModelController.$pristine);
                     }
                 }, 500); // interval end
 
@@ -135,7 +134,7 @@
                     ngModelController.$validators[validationFn] = tbioValidationsFactory[validationFn];
                 };
             }; //init end
-    }];
+                }];
 
     //Create the actual Controller and Directive
     angular.module('ephox.textboxio', [])

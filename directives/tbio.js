@@ -108,13 +108,19 @@
                     }
                     if (ngModelController.$modelValue) {
                         theEditor.content.set(ngModelController.$modelValue);
+                        ngModelController.$setPristine()
                     }
                 }; //$render end
 
                 // In lieu of events I just update the model every X seconds.
                 // Once the editor has event(s) this gets replaced by event code.
                 var interval = $interval(function () {
-                    ngModelController.$setViewValue(theEditor.content.get());
+                    if ('<p><br /></p>' == theEditor.content.get()) {
+                        console.log('EMPTY ' + ngModelController.$pristine);
+
+                    } else {
+                        ngModelController.$setViewValue(theEditor.content.get());
+                    }
                 }, 500); // interval end
 
                 // When the DOM element is removed from the page AngularJS will trigger the $destroy event on

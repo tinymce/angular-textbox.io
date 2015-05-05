@@ -115,10 +115,9 @@
                 // In lieu of events I just update the model every X seconds.
                 // Once the editor has event(s) this gets replaced by event code.
                 var interval = $interval(function () {
+                    //Workaround to keep $pristine accurate until you type into the editor
                     if (!('<p><br /></p>' == theEditor.content.get())) {
                         ngModelController.$setViewValue(theEditor.content.get());
-                    } else {
-                        console.log('EMPTY! ' + ngModelController.$pristine);
                     }
                 }, 500); // interval end
 

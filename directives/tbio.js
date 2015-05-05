@@ -1,6 +1,6 @@
 (function () {
     var tbioDirective = ['$log', function ($log) {
-        //        $log.log('Loading Textbox.io Directive');
+        //$log.log('Loading Textbox.io Directive');
         var link = function (scope, element, attrs, controllers) {
             //var idOfElement = '[' + element.prop('id') + '] ';
             //$log.log('In TBIO directive for ID ' + idOfElement);
@@ -10,7 +10,6 @@
                 tbioCtrl.init(element, attrs, ngModelCtrl);
             }
         };
-
         return {
             restrict: 'A',
             priority: 100,
@@ -24,22 +23,19 @@
     }];
 
     var tbioRequiredDirective = ['$log', function ($log) {
-        $log.log('Loading Textbox.io Required Directive');
+        //$log.log('Loading Textbox.io Required Directive');
         var link = function (scope, element, attrs, ngModelCtrl) {
             if (!ngModelCtrl) return;
             attrs.required = true; // force truthy in case we are on non input element
-
-            ngModelCtrl.$validators.tbioRequired = function (modelValue, viewValue) {
-                var jStrippedString = jQuery(modelValue).text().trim();
-                $log.log('REQUIRED: ' + (!attrs.required || !ngModelCtrl.$isEmpty(jStrippedString)))
-                return !attrs.required || !ngModelCtrl.$isEmpty(jStrippedString);
-            };
-
-            attr.$observe('tbioRequired', function () {
+            attrs.$observe('tbioRequired', function () {
                 ngModelCtrl.$validate();
             });
+            ngModelCtrl.$validators.tbioRequired = function (modelValue, viewValue) {
+                var jStrippedString = jQuery(modelValue).text().trim();
+                //$log.log('REQUIRED: ' + (!attrs.required || !ngModelCtrl.$isEmpty(jStrippedString)))
+                return !attrs.required || !ngModelCtrl.$isEmpty(jStrippedString);
+            };
         };
-
         return {
             restrict: 'A',
             require: '?ngModel',
@@ -58,15 +54,10 @@
             });
             ngModelCtrl.$validators.tbioMinlength = function (modelValue, viewValue) {
                 var jStrippedString = jQuery(modelValue).text().trim();
-                //$log.log('Stripped string: [' + jStrippedString + ']');
-                //if (viewValue) {
-                //    $log.log('MIN length check. Is ' + jStrippedString.length + '>=' + minlength);
-                //}
-                $log.log('Min Length? ' + ngModelCtrl.$isEmpty(jStrippedString) || jStrippedString.length >= minlength);
+                //$log.log('Min Length? ' + (ngModelCtrl.$isEmpty(jStrippedString) || jStrippedString.length >= minlength));
                 return ngModelCtrl.$isEmpty(jStrippedString) || jStrippedString.length >= minlength;
             };
         };
-
         return {
             restrict: 'A',
             require: 'ngModel',
@@ -85,13 +76,10 @@
             });
             ngModelCtrl.$validators.tbioMaxlength = function (modelValue, viewValue) {
                 var jStrippedString = jQuery(modelValue).text().trim();
-                //if (viewValue) {
-                //    $log.log('MAX length check. Is ' + jStrippedString.length + '<=' + maxlength);
-                //}
+                //$log.log('Max Length? ' + ((maxlength < 0) || ngModelCtrl.$isEmpty(jStrippedString) || (jStrippedString.length <= maxlength)));
                 return (maxlength < 0) || ngModelCtrl.$isEmpty(jStrippedString) || (jStrippedString.length <= maxlength);
             };
         };
-
         return {
             restrict: 'A',
             require: 'ngModel',

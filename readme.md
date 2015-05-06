@@ -62,7 +62,7 @@ AngularJS 1.3 added a new validation feature - the `$validators` pipeline.  This
 
 ```
 ngModel.$validators.myValidation = function (modelValue, viewValue) {
-    //Your code here that returns true (valid) or false (invalid)
+	//Your code here that returns true (valid) or false (invalid)
 }
 ```
 
@@ -89,6 +89,7 @@ This set of AngularJS Directives and Factories solves this issue by managing the
 * Deploying Textbox.io to the page
 * Managing the sync of data between Textbox.io and the AngularJS view and model objects
 * Allowing for validation of content in the editor
+ * required (via `tbio-required` attribute)
  * minimum chars of text (via `tbio-minlength` attribute)
  * maximum chars of text (via `tbio-maxlength` attribute)
 * Allowing for developer-defined custom validation functions to be added to the $validators pipeline for all Textbox.io instances

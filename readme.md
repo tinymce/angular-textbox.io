@@ -17,10 +17,10 @@ Implementing this custom directive is straightforward and simple.
 ####Add the files to your project
 The 3 files provided need to be available to your application.  Where you place them is up to you and there seems to be a multitude of "best practices" for how to organize your files in an Angular project.  We will not attempt to tell you **where** to place the files but make sure you load the files in your main html page!
 
-####Add a `textboxio` module dependency to your application's module
+####Add a `ephox.textboxio` module dependency to your application's module
 For example, if your main module was called `blogApp` you would define `blogApp` in this fashion:
 
-`angular.module('blogApp', ['ngRoute', 'textboxio']);`
+`angular.module('blogApp', ['ngRoute', 'ephox.textboxio']);`
 
 ...where the array defines required modules.
 
@@ -46,16 +46,17 @@ The Directive supports the use of two attributes to handle validation of the “
 * Removes all HTML entities
 * Counts the remaining characters
 
-The two attributes you can add are:
+The three attributes you can add are:
 
-* `tbio-minlength`
-* `tbio-maxlength`
+* `tbio-required` (the editor must have some content)
+* `tbio-minlength` (the editor must have some minimum number of text characters)
+* `tbio-maxlength` (the editor cannot exceed some maximum number of text characters)
 
 Using these would lead to the following `<textarea>` tag in your form:
 
 `<textarea tbio tbio-minlength=“25” tbio-maxlength=“50000” ng-model=“your.model.reference” configuration=“simple” rows=“15” id=“tbioTextArea” name=“tbioTextArea”></textarea>`
 
-*Note:  You can certainly use other standard AngularJS attributes such as `required` on the `<textarea>`.  We don’t recommend using `ng-minlength` and `ng-maxlength` as they count HTML tags as characters of content.  We suggest you use `tbio-minlength` and `tbio-maxlength` instead.*
+*Note:  You can certainly use other standard AngularJS attributes on the `<textarea>`.  We don’t recommend using `required`, `ng-minlength` or `ng-maxlength` as they count HTML tags as characters of content.  We suggest you use `tbio-required`, `tbio-minlength` and/or `tbio-maxlength` instead.*
 
 ####**Custom Validation** Functions
 AngularJS 1.3 added a new validation feature - the `$validators` pipeline.  This allows you to easily add custom validation to an ngModel object using a rather simple syntax:

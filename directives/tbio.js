@@ -116,8 +116,14 @@
 				// Once the editor has event(s) this gets replaced by event code.
 				var interval = $interval(function () {
 					//Workaround to keep $pristine accurate until you type into the editor
-					$log.log('modelVal: ' + ngModelController.$modelValue);
-					$log.log('viewVal: ' + ngModelController.$viewValue);
+					if (ngModelController.$viewValue && (ngModelController.$viewValue != theEditor.content.get())) {
+						//$log.log('Content Changed!');
+						ngModelController.$setViewValue(theEditor.content.get());
+						return;
+					}
+					//Check for the default "empty" string and don't put anything in the view when "empty" is there
+					//to start with.  The prior if will catch having editor content that is completely deleted to revert
+					//to "empty".
 					if (!('<p><br /></p>' == theEditor.content.get())) {
 						ngModelController.$setViewValue(theEditor.content.get());
 					}
@@ -135,7 +141,7 @@
 					ngModelController.$validators[validationFn] = tbioValidationsFactory[validationFn];
 				};
 			}; //init end
-				}];
+	}];
 
 	//Create the actual Controller and Directive
 	angular.module('ephox.textboxio', [])

@@ -116,6 +116,8 @@
 				// Once the editor has event(s) this gets replaced by event code.
 				var interval = $interval(function () {
 					//Workaround to keep $pristine accurate until you type into the editor
+					$log.log('modelVal: ' + ngModelController.$modelValue);
+					$log.log('viewVal: ' + ngModelController.$viewValue);
 					if (!('<p><br /></p>' == theEditor.content.get())) {
 						ngModelController.$setViewValue(theEditor.content.get());
 					}

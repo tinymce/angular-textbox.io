@@ -2,18 +2,18 @@
 // instances on the page.
 
 angular.module('ephox.textboxio').factory('tbioValidationsFactory', ['$log', function ($log) {
-    //    $log.log('Loading tbioValidationsFactory');
-    var validations = [];
-    /*
-        validations['sampleValidation1'] = function (modelValue, viewValue) {
-            //        $log.log('Model value: [' + modelValue + '  View value:[' + viewValue + ']');
-            return true;
-        };
+	//    $log.log('Loading tbioValidationsFactory');
+	var validations = [];
+	/*
+		validations['sampleValidation1'] = function (modelValue, viewValue) {
+			//        $log.log('Model value: [' + modelValue + '  View value:[' + viewValue + ']');
+			return true;
+		};
 
-        validations['sampleValidation2'] = function (modelValue, viewValue) {
-            //        $log.log('Model value: [' + modelValue + '  View value:[' + viewValue + ']');
-            return true;
-        }
-    */
-    return validations;
+		validations['sampleValidation2'] = function (modelValue, viewValue) {
+			//        $log.log('Model value: [' + modelValue + '  View value:[' + viewValue + ']');
+			return true;
+		}
+	*/
+	return validations;
 }]);

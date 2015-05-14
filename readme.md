@@ -29,6 +29,8 @@ To turn a regular `<textarea>` into a Textbox.io editor instance you must add th
 
 `<textarea tbio ng-model=“your.model.reference” rows=“15” id=“tbioTextArea” name=“tbioTextArea” ></textarea>`
 
+**Make sure you do not have any space or text between the opening and closing `<textarea>` tags** - doing so will cause issues with loading data into Textbox.io.  It will also trigger an automatic failure of the `tbio-required` validation.
+
 *Note:  Each `<textarea>` must have a unique `id` attribute as that is how the directive locates the `<textarea>` in the DOM.*
 
 ####The **configuration** attribute *(optional - but not really optional)*

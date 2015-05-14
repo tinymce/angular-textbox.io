@@ -1,6 +1,6 @@
 (function () {
 	var tbioDirective = ['$log', function ($log) {
-		$log.log('Loading Textbox.io Directive');
+		//$log.log('Loading Textbox.io Directive');
 		var link = function (scope, element, attrs, controllers) {
 			//var idOfElement = '[' + element.prop('id') + '] ';
 			//$log.log('In TBIO directive for ID ' + idOfElement);
@@ -32,7 +32,7 @@
 			});
 			ngModelCtrl.$validators.tbioRequired = function (modelValue, viewValue) {
 				var jStrippedString = jQuery(modelValue).text().trim();
-				$log.log('REQUIRED: ' + (!attrs.required || !ngModelCtrl.$isEmpty(jStrippedString)));
+				//$log.log('REQUIRED: ' + (!attrs.required || !ngModelCtrl.$isEmpty(jStrippedString)));
 				return !attrs.required || !ngModelCtrl.$isEmpty(jStrippedString);
 			};
 		};
@@ -54,7 +54,7 @@
 			});
 			ngModelCtrl.$validators.tbioMinlength = function (modelValue, viewValue) {
 				var jStrippedString = jQuery(modelValue).text().trim();
-				$log.log('Min Length? ' + (ngModelCtrl.$isEmpty(jStrippedString) || jStrippedString.length >= minlength));
+				//$log.log('Min Length? ' + (ngModelCtrl.$isEmpty(jStrippedString) || jStrippedString.length >= minlength));
 				return ngModelCtrl.$isEmpty(jStrippedString) || jStrippedString.length >= minlength;
 			};
 		};
@@ -76,7 +76,7 @@
 			});
 			ngModelCtrl.$validators.tbioMaxlength = function (modelValue, viewValue) {
 				var jStrippedString = jQuery(modelValue).text().trim();
-				$log.log('Max Length? ' + ((maxlength < 0) || ngModelCtrl.$isEmpty(jStrippedString) || (jStrippedString.length <= maxlength)));
+				//$log.log('Max Length? ' + ((maxlength < 0) || ngModelCtrl.$isEmpty(jStrippedString) || (jStrippedString.length <= maxlength)));
 				return (maxlength < 0) || ngModelCtrl.$isEmpty(jStrippedString) || (jStrippedString.length <= maxlength);
 			};
 		};

@@ -14,6 +14,9 @@
 ##Usage
 Implementing this custom directive is straightforward and simple.
 
+####Add the Textbox.io files to your project
+Textbox.io itself has a set of files that need to be available in your application in order for the directive to function properly.  When you download Textbox.io you need to place the Where you place them is up to you and there seems to be a multitude of "best practices" for how to organize your files in an Angular project.  We will not attempt to tell you **where** to place the files but make sure you load the files in your main html page!
+
 ####Add the files to your project
 The 3 files provided need to be available to your application.  Where you place them is up to you and there seems to be a multitude of "best practices" for how to organize your files in an Angular project.  We will not attempt to tell you **where** to place the files but make sure you load the files in your main html page!
 

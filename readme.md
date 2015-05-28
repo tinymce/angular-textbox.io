@@ -15,9 +15,9 @@
 Implementing this custom directive is straightforward and simple.
 
 ####Add the Textbox.io files to your project
-Textbox.io itself has a set of files that need to be available in your application in order for the directive to function properly.  When you download Textbox.io you need to place the Where you place them is up to you and there seems to be a multitude of "best practices" for how to organize your files in an Angular project.  We will not attempt to tell you **where** to place the files but make sure you load the files in your main html page!
+Textbox.io itself has a set of files that need to be available in your application in order for the directive to function properly.  When you download Textbox.io you need to place the `textboxio` folder somewhere that is accessible to the user's browser at runtime.  You need to make sure you have a `<script>` tag in your page that loads the `textboxio.js` JavaScript file.  The remainder of this document assumes the Textbox.io files are in a web-accessible location and you already have a `<script>` tag in place loading the `textboxio.js` JavaScript file
 
-####Add the files to your project
+####Add the files from angular-textbox.io to your project
 The 3 files provided need to be available to your application.  Where you place them is up to you and there seems to be a multitude of "best practices" for how to organize your files in an Angular project.  We will not attempt to tell you **where** to place the files but make sure you load the files in your main html page!
 
 ####Add a `ephox.textboxio` module dependency to your application's module
